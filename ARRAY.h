@@ -1,36 +1,44 @@
-#define MAX 1000
+#define MAX 100000
 /*
-    Questa classe crea un oggetto di tipo Array che permette di eseguire azioni simili ad uno Stack come
+    Questa classe crea un oggetto di tipo vettore che permette di eseguire azioni simili ad uno Stack come
     Pop(togliere l'ultimo elemento inserito) e Push(inserire un elemnto nello Stack)
 */
 class ARRAY
 {
     private:
             int MainArray[MAX];
+
             int N;
+
+            bool mergeActive(int Array[], int N);
+
 
     public:
              ARRAY();
 
         void Print ();
-        void Sort  ();//DA SCRIVERE
-        void Mirror();//DA SCRIVERE
+        void Help();
+
+        int Mirror();
 
         bool pushBack      (int x);
         bool pushFront     (int x);
         bool popBack       (int x);
         bool popFront      (int x);
 
-        bool Research      (int key, SHORT &Position);//DA SCRIVERE
-
         bool getMinimum    ();
         bool extractMinimum();
 
-        int  getSum ();
-        int  getSize();
+        bool Sort          ();
 
-        double getAverage();
+        int getSum         ();
+        int getSize        ();
+        int Research       (int key);
+        int setSize        (int M);
+
+        double getAverage  ();
 };
+
 
 
 
