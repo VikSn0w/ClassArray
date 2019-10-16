@@ -36,32 +36,33 @@ void ARRAY::Help()
 
 //BOOL SEGMENT
 bool ARRAY::mergeActive(int Array[], int N)
- {
-                if(N > 1)
-                {
-                    int Center, Sx, Dx, k;
-                    int* W; //Prende lo spazio dall'heap
+{
+    if(N > 1)
+    {
+        int Center, Sx, Dx, k;
+        int* W; //Prende lo spazio dall'heap
 
-                    Center = N/2; //Metà del vettore
-                    mergeActive(Array, Center);
-                    mergeActive(Array+Center, N-Center);
+        Center = N/2; //Metà del vettore
+        mergeActive(Array, Center);
+        mergeActive(Array+Center, N-Center);
 
-                    W = new int[N];
+        W = new int[N];
 
-                    for(Sx = 0, Dx = Center, k = 0; k < N; k++)
-                    {
-                             if(Sx == Center)   W[k] =  Array[Dx++];                              //Se la parte sinistra è finita allora prendi dalla parte destra
-                        else if(Dx == N)        W[k] =  Array[Sx++];                              //Se la parte destra è finita allora prendi dalla parte sinistra
-                        else                    W[k] = (Array[Sx] <= Array[Dx]) ? Array[Sx++] : Array[Dx++]; //Prendi ìl più piccolo
-                    }
-                    for(k = 0; k < N; Array[k] = W[k], k++);//Ricopia vettore
+        for(Sx = 0, Dx = Center, k = 0; k < N; k++)
+        {
+                 if(Sx == Center)   W[k] =  Array[Dx++];                              //Se la parte sinistra è finita allora prendi dalla parte destra
+            else if(Dx == N)        W[k] =  Array[Sx++];                              //Se la parte destra è finita allora prendi dalla parte sinistra
+            else                    W[k] = (Array[Sx] <= Array[Dx]) ? Array[Sx++] : Array[Dx++]; //Prendi ìl più piccolo
+        }
 
-                    delete[]W; //Cedi lo spazio nuovamente
+        for(k = 0; k < N; Array[k] = W[k], k++);//Ricopia vettore
 
-                    return true;
-                 }
-                 else return false;
-            }
+        delete[]W; //Cedi lo spazio nuovamente
+
+            return true;
+        }
+        else return false;
+}
 
 bool ARRAY::pushBack(int x)
 {
