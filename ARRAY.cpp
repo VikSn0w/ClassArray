@@ -31,7 +31,7 @@ void ARRAY::Help()
     std::cout << "popBack        (int x)   = Deletes the last element in the last cell of the Array" << endl;
     std::cout << "popFront       (int x)   = Deletes the first element in the first cell of the Array" << endl<< endl;
 
-    std::cout << "spaceControl   ()        =  Controls the space of the Array" << endl<< endl;
+    std::cout << "spaceControl   ()        =  Verifies if the Array has been resized" << endl<< endl;
 
     std::cout << "getMinimum     ()        = Gets the minimum number in the Array" << endl;
     std::cout << "getAverage     ()        = Calculates the average number of the Array" << endl;
