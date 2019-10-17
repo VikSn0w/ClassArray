@@ -38,6 +38,8 @@ Here is a list of all the methods that you can use within this class
 **getSize**               ()        = Gets the current size of the Array
 
 
+**spaceControl()** = Gets the current physical sized occupied by the Array;
+
 
 **extractMinimum** ()  = Exctracts the minimum number in the array and deletes it
 
