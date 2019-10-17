@@ -1,4 +1,4 @@
-#define MAX 100000
+#define MAX 1000000
 /*
     Questa classe crea un oggetto di tipo vettore che permette di eseguire azioni simili ad uno Stack come
     Pop(togliere l'ultimo elemento inserito) e Push(inserire un elemnto nello Stack)
@@ -6,7 +6,7 @@
 class ARRAY
 {
     private:
-            int MainArray[MAX];
+            int* MainArray = new (nothrow)int [MAX];
 
             int N;
 
@@ -25,6 +25,8 @@ class ARRAY
         bool pushFront     (int x);
         bool popBack       (int x);
         bool popFront      (int x);
+
+        bool spaceControl  ();
 
         bool getMinimum    ();
         bool extractMinimum();

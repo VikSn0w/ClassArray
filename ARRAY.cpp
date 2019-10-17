@@ -24,6 +24,8 @@ void ARRAY::Help()
     cout << "popBack        (int x)   = Deletes the last element in the last cell of the Array" << endl;
     cout << "popFront       (int x)   = Deletes the first element in the first cell of the Array" << endl<< endl;
 
+    cout << "spaceControl   ()        =  Controls the space of the Array" << endl<< endl;
+
     cout << "getMinimum     ()        = Gets the minimum number in the Array" << endl;
     cout << "getAverage     ()        = Calculates the average number of the Array" << endl;
     cout << "getSum         ()        = Calculates the sum of the numbers in the Array" << endl;
@@ -35,6 +37,12 @@ void ARRAY::Help()
 }
 
 //BOOL SEGMENT
+bool ARRAY::spaceControl()
+{
+    if(!MainArray) return false;
+    else           return true;
+}
+
 bool ARRAY::mergeActive(int Array[], int N)
 {
     if(N > 1)
