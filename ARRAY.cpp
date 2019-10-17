@@ -1,48 +1,49 @@
 #include "ARRAY.h"
-ARRAY::ARRAY(){N = 0;}
+
+//CONSTRUCTOR
+ARRAY::ARRAY()
+{
+    PhysicalSize = 100;
+    MainArray = new (std::nothrow) int [PhysicalSize];
+    N = 0;
+}
 
 //VOID SEGMENT
 void ARRAY::Print()
 {
     for(int i = 0; i < N; i++)
     {
-        cout << setw(15) << MainArray[i];
+        std::cout << setw(15) << MainArray[i];
     }
 }
 
 void ARRAY::Help()
 {
-    cout << "Here is a list of all the methods that you can use within this class" << endl << endl;
-    cout << "Help           ()        = Prints the all the methods on the road" << endl;
-    cout << "Print          ()        = Prints the Array " << endl;
-    cout << "Mirror         ()        = Mirrors the Array" << endl;
-    cout << "Sort           ()        = Sorts the Array (Merge Sort)" << endl;
-    cout << "Research       (int key) = Researches a number in the Array " << endl << endl;
+    std::cout << "Here is a list of all the methods that you can use within this class" << endl << endl;
+    std::cout << "Help           ()        = Prints the all the methods on the road" << endl;
+    std::cout << "Print          ()        = Prints the Array " << endl;
+    std::cout << "Mirror         ()        = Mirrors the Array" << endl;
+    std::cout << "Sort           ()        = Sorts the Array (Merge Sort)" << endl;
+    std::cout << "Research       (int key) = Researches a number in the Array " << endl << endl;
 
-    cout << "pushBack       (int x)   = Inserts new numbers from the last cell of the Array" << endl;
-    cout << "pushFront      (int x)   = Inserts new numbers from the first cell of the Array" << endl;
-    cout << "popBack        (int x)   = Deletes the last element in the last cell of the Array" << endl;
-    cout << "popFront       (int x)   = Deletes the first element in the first cell of the Array" << endl<< endl;
+    std::cout << "pushBack       (int x)   = Inserts new numbers from the last cell of the Array" << endl;
+    std::cout << "pushFront      (int x)   = Inserts new numbers from the first cell of the Array" << endl;
+    std::cout << "popBack        (int x)   = Deletes the last element in the last cell of the Array" << endl;
+    std::cout << "popFront       (int x)   = Deletes the first element in the first cell of the Array" << endl<< endl;
 
-    cout << "spaceControl   ()        =  Controls the space of the Array" << endl<< endl;
+    std::cout << "spaceControl   ()        =  Controls the space of the Array" << endl<< endl;
 
-    cout << "getMinimum     ()        = Gets the minimum number in the Array" << endl;
-    cout << "getAverage     ()        = Calculates the average number of the Array" << endl;
-    cout << "getSum         ()        = Calculates the sum of the numbers in the Array" << endl;
-    cout << "getSize        ()        = Gets the current size of the Array" << endl << endl;
+    std::cout << "getMinimum     ()        = Gets the minimum number in the Array" << endl;
+    std::cout << "getAverage     ()        = Calculates the average number of the Array" << endl;
+    std::cout << "getSum         ()        = Calculates the sum of the numbers in the Array" << endl;
+    std::cout << "getSize        ()        = Gets the current size of the Array" << endl << endl;
 
-    cout << "extractMinimum ()        = Exctracts the minimum number in the array and deletes it " << endl << endl;
+    std::cout << "extractMinimum ()        = Exctracts the minimum number in the array and deletes it " << endl << endl;
 
-    cout << "setSize        (int M)   = Sets the size of the Array" << endl;
+    std::cout << "setSize        (int M)   = Sets the size of the Array" << endl;
 }
 
 //BOOL SEGMENT
-bool ARRAY::spaceControl()
-{
-    if(!MainArray) return false;
-    else           return true;
-}
-
 bool ARRAY::mergeActive(int Array[], int N)
 {
     if(N > 1)
@@ -54,7 +55,7 @@ bool ARRAY::mergeActive(int Array[], int N)
         mergeActive(Array, Center);
         mergeActive(Array+Center, N-Center);
 
-        W = new int[N];
+        W = new (std::nothrow) int[N];
 
         for(Sx = 0, Dx = Center, k = 0; k < N; k++)
         {
@@ -74,11 +75,35 @@ bool ARRAY::mergeActive(int Array[], int N)
 
 bool ARRAY::pushBack(int x)
 {
+    if(N == PhysicalSize)
+    {
+        int* SecondaryArray;
+        SecondaryArray =  new (nothrow) int [PhysicalSize + 100];
+
+        for(int i = 0; i < N; i++) SecondaryArray[i] = MainArray[i];
+
+        delete[]MainArray;
+        MainArray = SecondaryArray;
+        PhysicalSize += 100;
+    }
     MainArray[N]=x;
     N++;
 }
+
 bool ARRAY::pushFront(int x)
 {
+    if(N == PhysicalSize)
+    {
+        int* SecondaryArray;
+        SecondaryArray =  new (nothrow) int [PhysicalSize + 100];
+
+        for(int i = 0; i < N; i++) SecondaryArray[i] = MainArray[i];
+
+        delete[]MainArray;
+        MainArray = SecondaryArray;
+        PhysicalSize += 100;
+
+    }
     for(int i=N; i>0; i--)
 	{
 		MainArray[i]=MainArray[i-1];
@@ -142,6 +167,14 @@ bool ARRAY::Sort()
 }
 
 //INT SEGMENT
+
+int ARRAY::spaceControl()
+{
+    if(!MainArray) return 0x0;
+    else           return 0xA113;
+}
+
+
 int ARRAY::getSum()
 {
     int Sum = 0;

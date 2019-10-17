@@ -6,8 +6,9 @@
 class ARRAY
 {
     private:
-            int* MainArray = new (nothrow)int [MAX];
 
+            int  PhysicalSize;
+            int* MainArray;
             int N;
 
             bool mergeActive(int Array[], int N);
@@ -26,12 +27,12 @@ class ARRAY
         bool popBack       (int x);
         bool popFront      (int x);
 
-        bool spaceControl  ();
-
         bool getMinimum    ();
         bool extractMinimum();
 
         bool Sort          ();
+
+        int spaceControl   ();
 
         int getSum         ();
         int getSize        ();
