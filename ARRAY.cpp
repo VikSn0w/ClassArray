@@ -1,7 +1,8 @@
 #include "ARRAY.h"
 
 //CONSTRUCTOR
-ARRAY::ARRAY()
+template <typename T>
+ARRAY<T>::ARRAY()
 {
     PhysicalSize = 100;
     MainArray = new (std::nothrow) int [PhysicalSize];
@@ -9,7 +10,8 @@ ARRAY::ARRAY()
 }
 
 //VOID SEGMENT
-void ARRAY::Print()
+template <typename T>
+void ARRAY<T>::Print()
 {
     for(int i = 0; i < N; i++)
     {
@@ -17,7 +19,8 @@ void ARRAY::Print()
     }
 }
 
-void ARRAY::Help()
+template <typename T>
+void ARRAY<T>::Help()
 {
     std::cout << "Here is a list of all the methods that you can use within this class" << endl << endl;
     std::cout << "Help           ()        = Prints the all the methods on the road" << endl;
@@ -44,12 +47,13 @@ void ARRAY::Help()
 }
 
 //BOOL SEGMENT
-bool ARRAY::mergeActive(int Array[], int N)
+template <typename T>
+bool ARRAY<T>::mergeActive(T Array[], int N)
 {
     if(N > 1)
     {
         int Center, Sx, Dx, k;
-        int* W; //Prende lo spazio dall'heap
+        T* W; //Prende lo spazio dall'heap
 
         Center = N/2; //Metà del vettore
         mergeActive(Array, Center);
@@ -73,12 +77,13 @@ bool ARRAY::mergeActive(int Array[], int N)
         else return false;
 }
 
-bool ARRAY::pushBack(int x)
+template <typename T>
+bool ARRAY<T>::pushBack(T x)
 {
     if(N == PhysicalSize)
     {
-        int* SecondaryArray;
-        SecondaryArray =  new (nothrow) int [PhysicalSize + 100];
+        T* SecondaryArray;
+        SecondaryArray =  new (nothrow) T [PhysicalSize + 100];
 
         for(int i = 0; i < N; i++) SecondaryArray[i] = MainArray[i];
 
@@ -90,12 +95,13 @@ bool ARRAY::pushBack(int x)
     N++;
 }
 
-bool ARRAY::pushFront(int x)
+template <typename T>
+ bool ARRAY<T>::pushFront(T x)
 {
     if(N == PhysicalSize)
     {
-        int* SecondaryArray;
-        SecondaryArray =  new (nothrow) int [PhysicalSize + 100];
+        T* SecondaryArray;
+        SecondaryArray =  new (nothrow) T [PhysicalSize + 100];
 
         for(int i = 0; i < N; i++) SecondaryArray[i] = MainArray[i];
 
@@ -112,7 +118,8 @@ bool ARRAY::pushFront(int x)
 	N++;
 }
 
-bool ARRAY::popBack(int x)
+template <typename T>
+ bool ARRAY<T>::popBack(int x)
 {
     if(N > 0)
     {
@@ -122,7 +129,8 @@ bool ARRAY::popBack(int x)
     else return false;
 
 }
-bool ARRAY::popFront(int x)
+template <typename T>
+bool ARRAY<T>::popFront(int x)
 {
     if(N > 0)
     {
@@ -133,11 +141,11 @@ bool ARRAY::popFront(int x)
     else return false;
 }
 
-bool ARRAY::getMinimum()
+template <typename T>
+bool ARRAY<T>::getMinimum(T &Minimum)
 {
     if(N > 0)
     {
-        int Minimum;
         for (int i = 1, Minimum = MainArray[0]; i < N; i++)
             if(MainArray[i] < Minimum)Minimum = MainArray[i];
         N--;
@@ -146,7 +154,8 @@ bool ARRAY::getMinimum()
     else return false;
 }
 
-bool ARRAY::extractMinimum()
+template <typename T>
+bool ARRAY<T>::extractMinimum()
 {
     if(N > 0)
     {
@@ -161,39 +170,45 @@ bool ARRAY::extractMinimum()
     else return false;
 }
 
-bool ARRAY::Sort()
+template <typename T>
+bool ARRAY<T>::Sort()
 {
     mergeActive(MainArray, N);
 }
 
 //INT SEGMENT
 
-int ARRAY::spaceControl()
+template <typename T>
+int ARRAY<T>::spaceControl()
 {
     if(!MainArray) return 0x0;
     else           return 0xA113;
 }
 
 
-int ARRAY::getSum()
+template <typename T>
+T ARRAY<T>::getSum()
 {
-    int Sum = 0;
+    T Sum = 0;
     for(int i = 0; i < N; i++) Sum = Sum + MainArray[i];
     return Sum;
 }
 
-int ARRAY::getSize()
+template <typename T>
+int ARRAY<T>::getSize()
 {
     return N;
 }
 
-int ARRAY::setSize(int M)
+template <typename T>
+int ARRAY<T>::setSize(int M)
 {
     N = M;
     return N;
 }
 
-int ARRAY::Research(int key)
+template <typename T>
+T ARRAY<T>::Research(T key)
 {
     int Error = 0xA113;
     if(N > 0)
@@ -205,9 +220,10 @@ int ARRAY::Research(int key)
     else return Error;
 }
 
-int ARRAY::Mirror()
+template <typename T>
+int ARRAY<T>::Mirror()
 {
-    int temp = 0;
+    T temp = 0;
     for(int i = 0; i < N; ++i)
     {
         temp = MainArray[N-i-1];
@@ -217,9 +233,10 @@ int ARRAY::Mirror()
 }
 
 //DOUBLE SEGMENT
-double ARRAY::getAverage()
+template <typename T>
+double ARRAY<T>::getAverage()
 {
-    int Sum = 0;
+    T Sum = 0;
     for(int i = 0; i < N; i++) Sum = Sum + MainArray[i];
     return double(Sum)/double(N);
 }

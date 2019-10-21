@@ -3,15 +3,15 @@
     Questa classe crea un oggetto di tipo vettore che permette di eseguire azioni simili ad uno Stack come
     Pop(togliere l'ultimo elemento inserito) e Push(inserire un elemnto nello Stack)
 */
+template <class T>
 class ARRAY
 {
     private:
-
             int  PhysicalSize;
-            int* MainArray;
+            T* MainArray;
             int N;
 
-            bool mergeActive(int Array[], int N);
+            bool mergeActive(T Array[], int N);
 
 
     public:
@@ -22,21 +22,21 @@ class ARRAY
 
         int Mirror();
 
-        bool pushBack      (int x);
-        bool pushFront     (int x);
+        bool pushBack      (T x);
+        bool pushFront     (T x);
         bool popBack       (int x);
         bool popFront      (int x);
 
-        bool getMinimum    ();
+        bool getMinimum    (T &Minimum);
         bool extractMinimum();
 
         bool Sort          ();
 
         int spaceControl   ();
 
-        int getSum         ();
+        T   getSum         ();
         int getSize        ();
-        int Research       (int key);
+        T   Research       (T key);
         int setSize        (int M);
 
         double getAverage  ();
