@@ -1,7 +1,7 @@
 # Class - ARRAY
 A C++ **class** that permits an easy manipulation of an **Array**.
 
-Limits: the **Array** has a fixed amount of cells for the moment, 100000; so you can operate between 1 and 1000000 cells.
+Limits: now the only limit of the Array that is going to be created is given by the OS.
 
 Methods:
 Here is a list of all the methods that you can use within this class
