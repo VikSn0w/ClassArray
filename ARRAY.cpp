@@ -1,12 +1,56 @@
 #include "ARRAY.h"
 
+#define EXPRESSION (10/3 * 4)
+
 //CONSTRUCTOR
 template <typename T>
 ARRAY<T>::ARRAY()
 {
+    T x,
+      y;
+
     PhysicalSize = 100;
-    MainArray = new (std::nothrow) int [PhysicalSize];
+    MainArray = new (std::nothrow) T [PhysicalSize];
     N = 0;
+    ifstream F;
+
+    F.open("$$ARRAY$$.save");
+    if(F.is_open())
+    {
+        F >> x;
+        while(!F.eof())
+        {
+            pushBack(decryptoFunc(x));
+            F >>x;
+        }
+        F.close();
+    }
+}
+template <typename T>
+ARRAY<T>::~ARRAY()
+{
+    ofstream F;
+    F.open("$$ARRAY$$.save");
+    if(F.is_open())
+    {
+        for(int i = 0; i < N; i++) F << cryptoFunc(MainArray[i]) << endl;
+        F.close();
+    }
+    delete []MainArray;
+}
+
+template <typename T>
+T ARRAY<T>::cryptoFunc(T x)
+{
+    x = x + EXPRESSION;
+    return x;
+}
+
+template <typename T>
+T ARRAY<T>::decryptoFunc(T x)
+{
+    x = x - EXPRESSION;
+    return x;
 }
 
 //VOID SEGMENT

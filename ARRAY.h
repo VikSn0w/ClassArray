@@ -11,11 +11,14 @@ class ARRAY
             T* MainArray;
             int N;
 
+            T  cryptoFunc  (T x);
+            T  decryptoFunc(T x);
             bool mergeActive(T Array[], int N);
 
 
     public:
              ARRAY();
+            ~ARRAY();
 
         void Print ();
         void Help();
