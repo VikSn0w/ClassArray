@@ -1,7 +1,7 @@
 # Class - ARRAY
 A C++ **class** that permits an easy manipulation of an **Array**.
 
-Limits: now the only limit of the Array that is going to be created is given by the OS.
+Limits: now the only limit of the Array that is going to be created is given by the OS. Now the class encrypts, decrypts and saves the elements on an external file, .save (the default name is "$$ARRAY$$.save").
 
 Methods:
 Here is a list of all the methods that you can use within this class
