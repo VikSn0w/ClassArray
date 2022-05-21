@@ -3,21 +3,21 @@ A C++ **class** that permits an easy manipulation of an **Array**.
 
 Limits: now the only limit of the Array that is going to be created is given by the OS. 
 
-Now the class encrypts, decrypts and saves the elements on an external file, .save (the default name is "$$ARRAY$$.save").
+Now the class encrypts, decrypts and saves the elements on an external file, .save (the default name is "\\$\\$ARRAY\\$\\$.save").
 
 Methods:
 Here is a list of all the methods that you can use within this class
 
 
-**Help**          ()             = Prints the all the methods on the road
+**help**          ()             = Prints the all the methods on the road
 
-**Print**          ()             = Prints the Array
+**printOnConsole**          (int indexStart, int indexEnd)             = Prints the Array by giving a start and end index (putting NULL at the start will set the index at 0 and putting NULL at the end will set the index at N-1
 
-**Mirror**       ()             = Mirrors the Array
+**mirror**       ()             = Mirrors the Array
 
-**Sort**           ()             = Sorts the Array (Merge Sort)
+**sort**           (short type)             = Sorts the Array with 4 types of sorting (1. Simple Sort, 2. Selection Sort, 3. Insertion Sort, 4. Merge Sort)
 
-**Research**   (int key) = Researches a number in the Array
+**search**   (int key) = Researches a number in the Array
 
 
 
@@ -33,6 +33,8 @@ Here is a list of all the methods that you can use within this class
 
 **getMinimum**     ()        = Gets the minimum number in the Array
 
+**getMaximum**     ()        = Gets the maximum number in the Array
+
 **getAverage**       ()        = Calculates the average number of the Array
 
 **getSum**              ()        = Calculates the sum of the numbers in the Array
@@ -45,6 +47,10 @@ Here is a list of all the methods that you can use within this class
 
 **extractMinimum** ()  = Exctracts the minimum number in the array and deletes it
 
+**extractMaximum** ()  = Exctracts the maximum number in the array and deletes it
+
 
 **setSize** (int M)   = Sets the size of the Array
 
+
+**swapElement**     (int indexA, int indexB) = 
