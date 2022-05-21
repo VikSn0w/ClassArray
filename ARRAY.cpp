@@ -99,11 +99,13 @@ void ARRAY<T>::help()
 
     std::cout << "spaceControl   ()           =  Verifies if the Array has been resized" << std::endl<< std::endl;
 
-    std::cout << "getMinimum     ()           = Gets the minimum number in the Array" << std::endl;
-    std::cout << "getMaximum     ()           = Gets the maximum number in the Array" << std::endl;
-    std::cout << "getAverage     ()           = Calculates the average number of the Array" << std::endl;
-    std::cout << "getSum         ()           = Calculates the sum of the numbers in the Array" << std::endl;
-    std::cout << "getSize        ()           = Gets the current size of the Array" << std::endl << std::endl;
+    std::cout << "getMinimum     ()             = Gets the minimum number in the Array" << std::endl;
+    std::cout << "getMaximum     ()             = Gets the maximum number in the Array" << std::endl;
+    std::cout << "getIndexMinimum(int &Minimum) = Gets the index of the minimum number in the Array" << std::endl;
+    std::cout << "getIndexMaximum(int &Minimum) = Gets the index of the maximum number in the Array" << std::endl;
+    std::cout << "getAverage     ()             = Calculates the average number of the Array" << std::endl;
+    std::cout << "getSum         ()             = Calculates the sum of the numbers in the Array" << std::endl;
+    std::cout << "getSize        ()             = Gets the current size of the Array" << std::endl << std::endl;
 
     std::cout << "extractMinimum ()           = Exctracts the minimum number in the array and deletes it " << std::endl << std::endl;
     std::cout << "extractMaximum ()           = Exctracts the maximum number in the array and deletes it " << std::endl << std::endl;
@@ -411,3 +413,26 @@ int ARRAY<T>::swapElement(int indexA, int indexB){
     return 0;
 }
 
+template <typename T>
+bool ARRAY<T>::getIndexMinimum(int &Minimum){
+    if(N > 0)
+    {
+        for (int i = 1, Minimum = MainArray[0]; i < N; i++)
+            if(MainArray[i] < MainArray[Minimum])Minimum = i;
+        N--;
+        return true;
+    }
+    else return false;
+}
+
+template <typename T>
+bool ARRAY<T>::getIndexMaximum(int &Maximum){
+    if(N > 0)
+    {
+        for (int i = 1, Maximum = MainArray[0]; i < N; i++)
+            if(MainArray[i] > MainArray[Maximum])Maximum = i;
+        N--;
+        return true;
+    }
+    else return false;
+}

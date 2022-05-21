@@ -36,6 +36,8 @@ class ARRAY
 
         bool getMinimum     (T &Minimum);
         bool getMaximum     (T &Maximum);
+        bool getIndexMinimum     (int &Minimum);
+        bool getIndexMaximum     (int &Maximum);
         bool extractMinimum ();
         bool extractMaximum ();
 
