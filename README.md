@@ -35,6 +35,10 @@ Here is a list of all the methods that you can use within this class
 
 **getMaximum**     ()        = Gets the maximum number in the Array
 
+**getIndexMinimum (int &Minimum)** = Gets the index of the minimum number in the Array
+
+**getIndexMaximum (int &Minimum)** = Gets the index of the maximum number in the Array
+
 **getAverage**       ()        = Calculates the average number of the Array
 
 **getSum**              ()        = Calculates the sum of the numbers in the Array
