@@ -1,8 +1,10 @@
 #define MAX 1000000
-/*
-    Questa classe crea un oggetto di tipo vettore che permette di eseguire azioni simili ad uno Stack come
-    Pop(togliere l'ultimo elemento inserito) e Push(inserire un elemnto nello Stack)
-*/
+#include <iostream> //console output
+#include <fstream>  //file i/o
+#include <iomanip>  //output format
+#include <stdlib.h> /* srand, rand */
+#include <time.h>   /* time */
+
 template <class T>
 class ARRAY
 {
@@ -14,36 +16,42 @@ class ARRAY
             T  cryptoFunc  (T x);
             T  decryptoFunc(T x);
             bool mergeActive(T Array[], int N);
-
+            void simpleSort(T V[], int N);
+            void insertionSort(T V[], int N);
+            void selectionSort(T V[], int N);
 
     public:
              ARRAY();
             ~ARRAY();
 
-        void Print ();
-        void Help();
+        void help           ();
+        void printOnConsole (int indexStart, int indexEnd);
 
-        int Mirror();
+        int  mirror         ();
 
-        bool pushBack      (T x);
-        bool pushFront     (T x);
-        bool popBack       (int x);
-        bool popFront      (int x);
+        bool pushBack       (T x);
+        bool pushFront      (T x);
+        bool popBack        (int x);
+        bool popFront       (int x);
 
-        bool getMinimum    (T &Minimum);
-        bool extractMinimum();
+        bool getMinimum     (T &Minimum);
+        bool getMaximum     (T &Maximum);
+        bool extractMinimum ();
+        bool extractMaximum ();
 
-        bool Sort          ();
+        bool sort           (short type);
 
-        int spaceControl   ();
+        int spaceControl    ();
 
-        T   getSum         ();
-        int getSize        ();
-        T   Research       (T key);
-        int setSize        (int M);
+        T   getSum          ();
+        int getSize         ();
+        T   search        (T key);
+        int setSize         (int M);
+        int swapElement     (int indexA, int indexB);
 
-        double getAverage  ();
+        double getAverage   ();
 };
+
 
 
 
