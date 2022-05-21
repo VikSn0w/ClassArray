@@ -31,9 +31,9 @@ Here is a list of all the methods that you can use within this class
 
 
 
-**getMinimum**     ()        = Gets the minimum number in the Array
+**getMinimum**     (T &Minimum) = Gets the minimum number in the Array
 
-**getMaximum**     ()        = Gets the maximum number in the Array
+**getMaximum**     (T &Minimum) = Gets the maximum number in the Array
 
 **getIndexMinimum (int &Minimum)** = Gets the index of the minimum number in the Array
 
