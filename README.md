@@ -53,4 +53,4 @@ Here is a list of all the methods that you can use within this class
 **setSize** (int M)   = Sets the size of the Array
 
 
-**swapElement**     (int indexA, int indexB) = 
+**swapElement**     (int indexA, int indexB) = Swaps the elements at the position specified by indexA and indexB 
